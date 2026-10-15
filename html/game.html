@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crown of Shadows — Ludo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/game.css"/>
+</head>
+<body>
+
+<!-- FLOAT TEXTS -->
+<div id="floats"></div>
+
+<!-- TURN BANNER -->
+<div class="turn-banner" id="turn-banner"></div>
+
+<!-- ═══ TOPBAR ═══ -->
+<header class="topbar">
+  <div class="topbar-left">
+    <a href="../home.html" class="topbar-back">← VOLTAR</a>
+    <div class="topbar-logo">♛ CROWN OF SHADOWS — LUDO</div>
+  </div>
+  <div class="topbar-center" id="topbar-center">
+    <!-- turn info injected by JS -->
+  </div>
+  <div class="topbar-right">
+    <button class="tb-btn" onclick="Ludo.restart()">↺ REINICIAR</button>
+    <button class="tb-btn" onclick="Ludo.toggleRules()">? REGRAS</button>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<div class="ludo-wrap">
+
+  <!-- LEFT: players 0 & 2 info -->
+  <aside class="side-panel side-left">
+    <div class="player-card" id="pcard-0"></div>
+    <div class="player-card" id="pcard-2"></div>
+  </aside>
+
+  <!-- CENTER: board -->
+  <div class="board-center">
+    <canvas id="ludo-canvas"></canvas>
+    <!-- dice area below board -->
+    <div class="dice-area">
+      <div class="dice-wrap" id="dice-wrap" onclick="Ludo.roll()">
+        <div class="die" id="die">
+          <svg viewBox="0 0 80 80" id="die-svg">
+            <rect x="2" y="2" width="76" height="76" rx="14" fill="#1a1020" stroke="#c9a84c" stroke-width="2"/>
+            <g id="die-pips"></g>
+          </svg>
+        </div>
+        <div class="dice-label" id="dice-label">ROLAR DADO</div>
+      </div>
+      <div class="dice-result" id="dice-result" style="display:none">
+        <span class="dice-num" id="dice-num">6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: players 1 & 3 info -->
+  <aside class="side-panel side-right">
+    <div class="player-card" id="pcard-1"></div>
+    <div class="player-card" id="pcard-3"></div>
+  </aside>
+
+</div>
+
+<!-- NARRATION BOX -->
+<div class="narration-box" id="narration-box">
+  <span class="narr-icon">📜</span>
+  <span class="narr-text" id="narr-text">"A Coroa das Sombras aguarda. Quem chegará primeiro?"</span>
+</div>
+
+<!-- RULES MODAL -->
+<div class="modal-overlay" id="rules-modal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span>📜 REGRAS DO LUDO</span>
+      <button class="modal-close" onclick="Ludo.toggleRules()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>🎲 <strong>Objetivo:</strong> Leve todas as suas 4 peças da base até o centro (Coroa das Sombras).</p>
+      <p>🎲 <strong>Sair da base:</strong> Role <strong>6</strong> para tirar uma peça da base.</p>
+      <p>🎲 <strong>Rolar 6:</strong> Ganhe uma jogada extra.</p>
+      <p>🎲 <strong>Capturar:</strong> Caia na mesma casa de um inimigo para enviá-lo de volta à base.</p>
+      <p>🎲 <strong>Casas seguras:</strong> Marcadas com ✦ — não é possível capturar peças nelas.</p>
+      <p>🎲 <strong>Entrada no lar:</strong> Só entra no corredor colorido com o número exato.</p>
+      <p>🎲 <strong>Vitória:</strong> Primeiro a colocar todas as 4 peças no centro vence.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WIN MODAL -->
+<div class="modal-overlay" id="win-modal" style="display:none">
+  <div class="modal-box modal-win">
+    <div class="win-crown">♛</div>
+    <div class="win-title" id="win-title">HARLEY VENCEU!</div>
+    <div class="win-sub">A Coroa das Sombras foi conquistada.</div>
+    <button class="win-btn" onclick="Ludo.restart()">⚔ JOGAR NOVAMENTE</button>
+    <a href="../home.html" class="win-btn win-btn-sec">← MENU PRINCIPAL</a>
+  </div>
+</div>
+
+<script src="../js/game.js"></script>
+</body>
+</html>

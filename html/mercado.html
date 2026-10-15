@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crown of Shadows — Mercado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/mercado.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <nav class="sb-nav">
+      <a href="personagens.html" class="sb-link">
+        <span class="sb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9v4l-1 2h16l-1-2V9c0-4-3-7-7-7z"/><path d="M9 15v2a3 3 0 0 0 6 0v-2"/><path d="M8 9h8"/></svg></span>
+        <span class="sb-label">PERSONAGENS</span>
+      </a>
+      <a href="missoes.html" class="sb-link">
+        <span class="sb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V6z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>
+        <span class="sb-label">MISSÕES</span>
+      </a>
+      <a href="classes.html" class="sb-link">
+        <span class="sb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="3" x2="21" y2="21"/><line x1="21" y1="3" x2="3" y2="21"/><circle cx="12" cy="12" r="2"/></svg></span>
+        <span class="sb-label">CLASSES</span>
+      </a>
+      <a href="joga.html" class="sb-link">
+        <span class="sb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="12,2 15,9 12,12 9,9" fill="currentColor" opacity="0.7"/><polygon points="12,22 9,15 12,12 15,15" fill="currentColor" opacity="0.3"/></svg></span>
+        <span class="sb-label">MAPA</span>
+      </a>
+      <a href="lore.html" class="sb-link">
+        <span class="sb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h9v16H2z"/><path d="M13 4h9v16h-9z"/><line x1="11" y1="4" x2="13" y2="4"/><line x1="11" y1="20" x2="13" y2="20"/></svg></span>
+        <span class="sb-label">LORE</span>
+      </a>
+      <a href="mercado.html" class="sb-link active">
+        <span class="sb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 19,7 19,17 12,22 5,17 5,7"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="5" y1="7" x2="19" y2="7"/><line x1="5" y1="17" x2="19" y2="17"/></svg></span>
+        <span class="sb-label">MERCADO</span>
+      </a>
+    </nav>
+    <div class="sb-bottom">
+      <div class="sb-dragon">
+        <img src="../assets/images/dragao_emblema.png" alt="Dragão" style="width:120px;height:120px;object-fit:contain;" />
+      </div>
+      <div class="sb-divider"></div>
+      <a href="configuracoes.html" class="sb-link sb-link-sm">
+        <span class="sb-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></span>
+        <span class="sb-label">CONFIGURAÇÕES</span>
+      </a>
+      <a href="../index.html" class="sb-link sb-link-sm sb-link-danger">
+        <span class="sb-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+        <span class="sb-label">DESLIGAR</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-wrap">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="topbar-hamburger" onclick="document.getElementById('sidebar').classList.toggle('sb-open')">☰</button>
+      <a href="../home.html" class="topbar-back" title="Voltar à Jornada">← JORNADA</a>
+      <div class="topbar-right">
+        <button class="topbar-icon-btn">
+          🔔<span class="topbar-badge">3</span>
+          <div class="topbar-drop">
+            <div class="drop-title">Notificações</div>
+            <div class="drop-item">⚔ Nova missão disponível</div>
+            <div class="drop-item">🏆 Conquista desbloqueada!</div>
+          </div>
+        </button>
+        <button class="topbar-icon-btn">
+          ✉<span class="topbar-badge topbar-badge-red">2</span>
+          <div class="topbar-drop">
+            <div class="drop-title">Mensagens</div>
+            <div class="drop-item">🧙 Harley: "Pronto para a batalha?"</div>
+          </div>
+        </button>
+        <div class="topbar-profile-wrap">
+          <button class="topbar-profile-btn">
+            <div class="topbar-avatar" id="topbar-avatar">K</div>
+            <div class="topbar-profile-info">
+              <span class="topbar-profile-name" id="topbar-name">Kael</span>
+              <span class="topbar-profile-level">Nv. <span id="topbar-level">8</span></span>
+            </div>
+            <span class="topbar-arrow">▾</span>
+          </button>
+          <div class="topbar-drop topbar-profile-drop">
+            <button onclick="window.location.href='../index.html'">⏻ Sair</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MARKET AREA -->
+    <div class="market-area">
+
+      <div class="market-topbar">
+        <div class="market-title-wrap">
+          <span class="page-tag">◉ EMPÓRIO DAS SOMBRAS</span>
+          <h1 class="page-title">MERCADO</h1>
+        </div>
+        <div class="market-topbar-right">
+          <div class="balance-wrap">
+            <span class="balance-icon">💰</span>
+            <span class="balance-label">SALDO</span>
+            <span class="balance-val" id="balance-val">5.000</span>
+            <span class="balance-unit">moedas</span>
+          </div>
+          <button class="cart-btn" id="cart-btn" onclick="Market.toggleCart()">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-label">CARRINHO</span>
+            <span class="cart-count" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CATEGORY TABS -->
+      <div class="cat-tabs">
+        <button class="cat-tab active" data-cat="todos"    onclick="Market.setCategory('todos',this)">TODOS</button>
+        <button class="cat-tab"        data-cat="arma"     onclick="Market.setCategory('arma',this)">ARMAS</button>
+        <button class="cat-tab"        data-cat="armadura" onclick="Market.setCategory('armadura',this)">ARMADURAS</button>
+        <button class="cat-tab"        data-cat="item"     onclick="Market.setCategory('item',this)">ITENS</button>
+        <button class="cat-tab"        data-cat="pocao"    onclick="Market.setCategory('pocao',this)">POÇÕES</button>
+        <button class="cat-tab"        data-cat="material" onclick="Market.setCategory('material',this)">MATERIAIS</button>
+        <button class="cat-tab"        data-cat="lendario" onclick="Market.setCategory('lendario',this)">RARIDADES</button>
+      </div>
+
+      <!-- BODY: filtros + grid -->
+      <div class="market-body">
+
+        <!-- FILTROS -->
+        <aside class="filters-panel">
+          <div class="filter-section-title">🔍 BUSCAR</div>
+          <input type="text" class="filter-search" id="filter-search" placeholder="Buscar item..." oninput="Market.applyFilters()" />
+
+          <div class="filter-divider"></div>
+          <div class="filter-section-title">✦ RARIDADE</div>
+          <div class="filter-checks" id="filter-rarity">
+            <label class="filter-check"><input type="checkbox" value="comum"    checked onchange="Market.applyFilters()"><span class="rarity-dot comum"></span>Comum</label>
+            <label class="filter-check"><input type="checkbox" value="incomum"  checked onchange="Market.applyFilters()"><span class="rarity-dot incomum"></span>Incomum</label>
+            <label class="filter-check"><input type="checkbox" value="raro"     checked onchange="Market.applyFilters()"><span class="rarity-dot raro"></span>Raro</label>
+            <label class="filter-check"><input type="checkbox" value="epico"    checked onchange="Market.applyFilters()"><span class="rarity-dot epico"></span>Épico</label>
+            <label class="filter-check"><input type="checkbox" value="lendario" checked onchange="Market.applyFilters()"><span class="rarity-dot lendario"></span>Lendário</label>
+          </div>
+
+          <div class="filter-divider"></div>
+          <div class="filter-section-title">⚔ CATEGORIA</div>
+          <div class="filter-checks" id="filter-cat">
+            <label class="filter-check"><input type="checkbox" value="arma"     checked onchange="Market.applyFilters()">Armas</label>
+            <label class="filter-check"><input type="checkbox" value="armadura" checked onchange="Market.applyFilters()">Armaduras</label>
+            <label class="filter-check"><input type="checkbox" value="pocao"    checked onchange="Market.applyFilters()">Poções</label>
+            <label class="filter-check"><input type="checkbox" value="item"     checked onchange="Market.applyFilters()">Itens</label>
+            <label class="filter-check"><input type="checkbox" value="material" checked onchange="Market.applyFilters()">Materiais</label>
+          </div>
+
+          <div class="filter-divider"></div>
+          <div class="filter-section-title">💰 PREÇO</div>
+          <div class="price-range-wrap">
+            <div class="price-inputs">
+              <input type="number" class="price-input" id="price-min" placeholder="Mín" min="0" value="0"     oninput="Market.applyFilters()" />
+              <span class="price-sep">—</span>
+              <input type="number" class="price-input" id="price-max" placeholder="Máx" min="0" value="99999" oninput="Market.applyFilters()" />
+            </div>
+            <input type="range" class="price-slider" id="price-slider" min="0" max="10000" value="10000" oninput="Market.onSlider(this)" />
+            <div class="price-range-labels">
+              <span>0</span><span id="slider-max-label">10.000+</span>
+            </div>
+          </div>
+
+          <button class="filter-reset-btn" onclick="Market.resetFilters()">↺ LIMPAR FILTROS</button>
+        </aside>
+
+        <!-- GRID DE PRODUTOS -->
+        <div class="products-wrap">
+          <div class="products-info-bar">
+            <span class="products-count" id="products-count">0 itens</span>
+            <select class="sort-select" id="sort-select" onchange="Market.applyFilters()">
+              <option value="name">Nome A–Z</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+              <option value="rarity">Raridade</option>
+            </select>
+          </div>
+          <div class="products-grid" id="products-grid"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div class="prod-overlay" id="prod-overlay" onclick="Market.closeModal(event)">
+    <div class="prod-modal" id="prod-modal">
+      <button class="prod-close" onclick="Market.closeModal(null,true)">✕</button>
+      <div class="prod-modal-art" id="prod-modal-art">
+        <span class="prod-modal-icon" id="prod-modal-icon">⚔</span>
+      </div>
+      <div class="prod-modal-body">
+        <div class="prod-modal-rarity" id="prod-modal-rarity">RARO</div>
+        <h2 class="prod-modal-name" id="prod-modal-name">Item</h2>
+        <p class="prod-modal-desc" id="prod-modal-desc"></p>
+        <div class="prod-modal-attrs" id="prod-modal-attrs"></div>
+        <div class="prod-modal-price-row">
+          <span class="prod-modal-price-icon">💰</span>
+          <span class="prod-modal-price" id="prod-modal-price">0</span>
+          <span class="prod-modal-price-unit">moedas</span>
+        </div>
+        <div class="prod-modal-actions">
+          <button class="prod-buy-btn"  id="prod-buy-btn"  onclick="Market.buyNow()">COMPRAR AGORA</button>
+          <button class="prod-cart-btn" id="prod-cart-btn" onclick="Market.addToCartFromModal()">+ CARRINHO</button>
+        </div>
+        <div class="prod-modal-feedback" id="prod-modal-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay" onclick="Market.closeCartOverlay(event)">
+    <div class="cart-drawer" id="cart-drawer">
+      <div class="cart-header">
+        <span class="cart-header-title">🛒 CARRINHO</span>
+        <button class="cart-header-close" onclick="Market.toggleCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <div class="cart-empty" id="cart-empty">
+          <span class="cart-empty-icon">🛒</span>
+          <span class="cart-empty-text">Seu carrinho está vazio</span>
+        </div>
+      </div>
+      <div class="cart-footer" id="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">TOTAL</span>
+          <span class="cart-total-val" id="cart-total-val">0 moedas</span>
+        </div>
+        <div class="cart-balance-row">
+          <span class="cart-balance-label">Seu saldo</span>
+          <span class="cart-balance-val" id="cart-balance-val">5.000 moedas</span>
+        </div>
+        <button class="cart-checkout-btn" id="cart-checkout-btn" onclick="Market.checkout()">
+          FINALIZAR COMPRA
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/mercado.js"></script>
+</body>
+</html>

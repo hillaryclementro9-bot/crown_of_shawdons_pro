@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Crown of Shadows — Tabuleiro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/board.css"/>
+</head>
+<body>
+
+<!-- ═══ INTRO ═══ -->
+<div id="intro-screen">
+  <canvas id="intro-particles"></canvas>
+  <div class="intro-content">
+    <div class="intro-crown">♛</div>
+    <h1 class="intro-title">CROWN OF SHADOWS</h1>
+    <p class="intro-sub">O Tabuleiro das Sombras</p>
+    <p class="intro-lore">"Nas profundezas de Eryndor, cinco heróis buscam a lendária Coroa das Sombras. O caminho é longo, os perigos são reais — e apenas um chegará ao centro."</p>
+    <div class="intro-chars" id="intro-chars"></div>
+    <button class="intro-btn" id="intro-start">⚔ COMEÇAR AVENTURA</button>
+    <button class="intro-btn intro-btn-sec" onclick="window.location.href='../home.html'">← VOLTAR</button>
+  </div>
+</div>
+
+<!-- ═══ GAME ═══ -->
+<div id="game-screen" style="display:none">
+
+  <!-- TOPBAR -->
+  <header class="g-top">
+    <div class="g-top-left">
+      <button class="g-back-btn" onclick="Board.confirmQuit()">← SAIR</button>
+      <div class="g-logo-sm">♛ CROWN OF SHADOWS</div>
+    </div>
+    <div class="g-top-center">
+      <span class="g-turn-label">TURNO</span>
+      <span class="g-turn-num" id="g-turn-num">01</span>
+      <div class="g-turn-order" id="g-turn-order"></div>
+    </div>
+    <div class="g-top-right">
+      <button class="g-icon-btn" onclick="Board.toggleInventory()" title="Inventário">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="3" y="7" width="14" height="11" rx="2"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg>
+      </button>
+      <button class="g-icon-btn" onclick="Board.toggleQuests()" title="Missões">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M6 2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><line x1="8" y1="7" x2="12" y2="7"/><line x1="8" y1="10" x2="12" y2="10"/><line x1="8" y1="13" x2="10" y2="13"/></svg>
+      </button>
+      <button class="g-icon-btn" onclick="Board.toggleChronicle()" title="Crônica">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M4 4h12v12H4z"/><path d="M4 8h12"/><path d="M8 4v12"/></svg>
+      </button>
+      <button class="g-icon-btn" onclick="Board.confirmQuit()" title="Menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="10" cy="10" r="3"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="g-body">
+
+    <!-- LEFT: character portraits -->
+    <aside class="g-left" id="g-left">
+      <div class="g-left-title">HERÓIS</div>
+      <div id="portrait-list"></div>
+    </aside>
+
+    <!-- CENTER: board canvas -->
+    <main class="g-center">
+      <canvas id="board-canvas" onclick="Board.onCanvasClick(event)"></canvas>
+      <!-- MASTER BOX -->
+      <div class="master-box" id="master-box">
+        <div class="master-header">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13" style="color:var(--gold)"><path d="M2 2h12v10H2z"/><path d="M5 6h6M5 8.5h4"/></svg>
+          <span class="master-lbl">MESTRE</span>
+        </div>
+        <div class="master-text" id="master-text">"A Coroa das Sombras aguarda no centro do tabuleiro."</div>
+        <div class="master-choices" id="master-choices"></div>
+      </div>
+    </main>
+
+    <!-- RIGHT: actions + dice -->
+    <aside class="g-right" id="g-right">
+      <div class="g-right-title">SUAS AÇÕES</div>
+      <div class="action-list" id="action-list"></div>
+
+      <div class="dice-section">
+        <div class="g-right-title" style="margin-top:.8rem">DADO</div>
+        <div class="dice-wrap" id="dice-wrap" onclick="Board.rollDice()">
+          <svg class="die-svg" id="die-svg" viewBox="0 0 80 80">
+            <defs>
+              <filter id="dieShadow">
+                <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.6)"/>
+              </filter>
+              <linearGradient id="dieGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2a1a0a"/>
+                <stop offset="100%" stop-color="#0d0810"/>
+              </linearGradient>
+            </defs>
+            <rect x="4" y="4" width="72" height="72" rx="14"
+              fill="url(#dieGrad)" stroke="#c9a84c" stroke-width="2" filter="url(#dieShadow)"/>
+            <g id="die-pips"></g>
+          </svg>
+          <div class="dice-label" id="dice-label">ROLAR DADO</div>
+        </div>
+        <div class="dice-result" id="dice-result" style="display:none">
+          <div class="dice-num" id="dice-num">—</div>
+          <div class="dice-verdict" id="dice-verdict"></div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="g-bottom">
+    <button class="g-bot-btn" onclick="Board.toggleInventory()">Inventário</button>
+    <button class="g-bot-btn" onclick="Board.toggleQuests()">Missões</button>
+    <button class="g-bot-btn" onclick="Board.toggleChronicle()">Crônica</button>
+  </div>
+
+</div>
+
+<!-- ═══ TUTORIAL ═══ -->
+<div id="tut-overlay" class="tut-overlay" style="display:none">
+  <div class="tut-spotlight" id="tut-spotlight"></div>
+  <div class="tut-box" id="tut-box">
+    <div class="tut-step" id="tut-step">PASSO 1 / 6</div>
+    <div class="tut-title" id="tut-title">ROLE O DADO</div>
+    <p class="tut-text" id="tut-text">O resultado determina quantas casas seu herói poderá avançar.</p>
+    <div class="tut-dots" id="tut-dots"></div>
+    <div class="tut-actions">
+      <button class="tut-skip" onclick="Board.tutSkip()">Pular</button>
+      <button class="tut-next" id="tut-next" onclick="Board.tutNext()">PRÓXIMO →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODALS ═══ -->
+
+<!-- EVENT -->
+<div class="modal-bg" id="modal-event" style="display:none">
+  <div class="modal-box">
+    <div class="modal-icon" id="ev-icon">✦</div>
+    <div class="modal-title" id="ev-title">Encontro!</div>
+    <div class="modal-story" id="ev-story"></div>
+    <div class="modal-choices" id="ev-choices"></div>
+  </div>
+</div>
+
+<!-- CONFRONTO -->
+<div class="modal-bg" id="modal-confront" style="display:none">
+  <div class="modal-box">
+    <div class="modal-icon">✦</div>
+    <div class="modal-title" id="cf-title">CONFRONTO!</div>
+    <div class="modal-story" id="cf-story"></div>
+    <div class="modal-choices" id="cf-choices"></div>
+  </div>
+</div>
+
+<!-- INVENTORY -->
+<div class="modal-bg" id="modal-inv" style="display:none">
+  <div class="modal-box modal-wide">
+    <div class="modal-header">
+      <span>INVENTÁRIO</span>
+      <button class="modal-close" onclick="Board.toggleInventory()">✕</button>
+    </div>
+    <div class="inv-grid" id="inv-grid"></div>
+  </div>
+</div>
+
+<!-- QUESTS -->
+<div class="modal-bg" id="modal-quests" style="display:none">
+  <div class="modal-box modal-wide">
+    <div class="modal-header">
+      <span>MISSÕES</span>
+      <button class="modal-close" onclick="Board.toggleQuests()">✕</button>
+    </div>
+    <div id="quests-body"></div>
+  </div>
+</div>
+
+<!-- CHRONICLE -->
+<div class="modal-bg" id="modal-chronicle" style="display:none">
+  <div class="modal-box modal-wide">
+    <div class="modal-header">
+      <span>CRÔNICA</span>
+      <button class="modal-close" onclick="Board.toggleChronicle()">✕</button>
+    </div>
+    <div class="chronicle-list" id="chronicle-list"></div>
+  </div>
+</div>
+
+<!-- WIN -->
+<div class="modal-bg" id="modal-win" style="display:none">
+  <div class="modal-box modal-win">
+    <div class="win-crown">♛</div>
+    <div class="win-title" id="win-title">VITÓRIA!</div>
+    <div class="win-sub" id="win-sub"></div>
+    <button class="win-btn" onclick="location.reload()">JOGAR NOVAMENTE</button>
+    <a class="win-btn win-btn-sec" href="../home.html">← MENU PRINCIPAL</a>
+  </div>
+</div>
+
+<!-- QUIT -->
+<div class="modal-bg" id="modal-quit" style="display:none">
+  <div class="modal-box modal-sm">
+    <div class="modal-title">ABANDONAR?</div>
+    <div class="modal-story">O progresso será perdido.</div>
+    <div class="modal-choices">
+      <button class="choice-btn" onclick="window.location.href='../home.html'">CONFIRMAR</button>
+      <button class="choice-btn choice-sec" onclick="document.getElementById('modal-quit').style.display='none'">CANCELAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOAT LAYER -->
+<div id="float-layer"></div>
+<!-- TURN BANNER -->
+<div class="turn-banner" id="turn-banner"></div>
+
+<script src="../js/board.js"></script>
+</body>
+</html>

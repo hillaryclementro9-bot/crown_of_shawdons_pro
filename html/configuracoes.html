@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crown of Shadows — Configurações</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/configuracoes.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-logo">
+      <img src="../assets/coroa.png" alt="Crown of Shadows" class="sb-logo-img" />
+    </div>
+    <div class="sb-divider"></div>
+    <nav class="sb-nav">
+      <a href="personagens.html" class="sb-link">
+        <span class="sb-icon">👤</span><span class="sb-label">PERSONAGENS</span>
+      </a>
+      <a href="missoes.html" class="sb-link">
+        <span class="sb-icon">📜</span><span class="sb-label">MISSÕES</span>
+      </a>
+      <a href="classes.html" class="sb-link">
+        <span class="sb-icon">⚔</span><span class="sb-label">CLASSES</span>
+      </a>
+      <a href="joga.html" class="sb-link">
+        <span class="sb-icon">🗺</span><span class="sb-label">MAPA</span>
+      </a>
+      <a href="lore.html" class="sb-link">
+        <span class="sb-icon">📖</span><span class="sb-label">LORE</span>
+      </a>
+      <a href="mercado.html" class="sb-link">
+        <span class="sb-icon">🛒</span><span class="sb-label">MERCADO</span>
+      </a>
+    </nav>
+    <div class="sb-bottom">
+      <div class="sb-dragon">
+        <img src="../assets/images/dragao_emblema.png" alt="Dragão" style="width:120px;height:120px;object-fit:contain;" />
+      </div>
+      <div class="sb-divider"></div>
+      <a href="configuracoes.html" class="sb-link sb-link-sm active">
+        <span class="sb-icon">⚙</span><span class="sb-label">CONFIGURAÇÕES</span>
+      </a>
+      <a href="../index.html" class="sb-link sb-link-sm sb-link-danger">
+        <span class="sb-icon">⏻</span><span class="sb-label">DESLIGAR</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-wrap">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="topbar-hamburger" onclick="document.getElementById('sidebar').classList.toggle('sb-open')">☰</button>
+      <a href="../home.html" class="topbar-back" title="Voltar à Jornada">← JORNADA</a>
+      <div class="topbar-right">
+        <button class="topbar-icon-btn">
+          🔔<span class="topbar-badge">3</span>
+          <div class="topbar-drop">
+            <div class="drop-title">Notificações</div>
+            <div class="drop-item">⚔ Nova missão disponível</div>
+            <div class="drop-item">🏅 Conquista desbloqueada!</div>
+            <div class="drop-item">📖 Mensagem da Guilda</div>
+          </div>
+        </button>
+        <button class="topbar-icon-btn">
+          ✉<span class="topbar-badge topbar-badge-red">2</span>
+          <div class="topbar-drop">
+            <div class="drop-title">Mensagens</div>
+            <div class="drop-item">🧙 Harley: "Pronto para a batalha?"</div>
+            <div class="drop-item">⚔ Morgan: "Encontrei uma relíquia!"</div>
+          </div>
+        </button>
+        <div class="topbar-profile-wrap">
+          <button class="topbar-profile-btn">
+            <div class="topbar-avatar" id="topbar-avatar">K</div>
+            <div class="topbar-profile-info">
+              <span class="topbar-profile-name" id="topbar-name">Kael</span>
+              <span class="topbar-profile-level">Nv. <span id="topbar-level">8</span></span>
+            </div>
+            <span class="topbar-arrow">▾</span>
+          </button>
+          <div class="topbar-drop topbar-profile-drop">
+            <button onclick="window.location.href='../index.html'">⏻ Sair</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONFIG AREA -->
+    <div class="cfg-area">
+
+      <div class="cfg-page-header">
+        <div class="cfg-title-wrap">
+          <span class="page-tag">⚙ SISTEMA</span>
+          <h1 class="page-title">CONFIGURAÇÕES</h1>
+        </div>
+        <div class="cfg-header-btns">
+          <button class="btn-restore" onclick="Cfg.restore()">↺ RESTAURAR PADRÕES</button>
+          <button class="btn-save"    onclick="Cfg.save()">✦ SALVAR ALTERAÇÕES</button>
+        </div>
+      </div>
+
+      <div class="cfg-body">
+
+        <!-- TABS -->
+        <nav class="cfg-tabs">
+          <button class="cfg-tab active" onclick="Cfg.tab(this,'jogo')">⚔ JOGO</button>
+          <button class="cfg-tab"        onclick="Cfg.tab(this,'audio')">🔊 ÁUDIO</button>
+          <button class="cfg-tab"        onclick="Cfg.tab(this,'interface')">🖥 INTERFACE</button>
+          <button class="cfg-tab"        onclick="Cfg.tab(this,'acessibilidade')">♿ ACESSIBILIDADE</button>
+          <button class="cfg-tab"        onclick="Cfg.tab(this,'conta')">👤 CONTA</button>
+        </nav>
+
+        <!-- PANELS -->
+        <div class="cfg-panels">
+
+          <!-- JOGO -->
+          <section class="cfg-panel active" id="panel-jogo">
+            <div class="panel-heading"><span>⚔</span> JOGO</div>
+            <div class="cfg-rows">
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Velocidade das Animações</span>
+                  <span class="cfg-hint">Controla a velocidade das animações de batalha</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="anim-speed" min="1" max="3" step="1"
+                           oninput="Cfg.stepLbl(this,['Lenta','Normal','Rápida'])" />
+                    <span class="slider-lbl" id="lbl-anim-speed"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Mostrar Grade do Mapa</span>
+                  <span class="cfg-hint">Exibe a grade de células no mapa de batalha</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="show-grid" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Confirmar antes de Finalizar Turno</span>
+                  <span class="cfg-hint">Pede confirmação antes de encerrar o turno atual</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="confirm-turn" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Mostrar Dicas</span>
+                  <span class="cfg-hint">Exibe tooltips e dicas durante o jogo</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="show-tips" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Mostrar Alcance de Movimento</span>
+                  <span class="cfg-hint">Destaca as células alcançáveis ao selecionar um token</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="show-range" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ÁUDIO -->
+          <section class="cfg-panel" id="panel-audio">
+            <div class="panel-heading"><span>🔊</span> ÁUDIO</div>
+            <div class="cfg-rows">
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Volume Geral</span>
+                  <span class="cfg-hint">Controla o volume de todos os sons do jogo</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="vol-master" min="0" max="100" step="5"
+                           oninput="Cfg.volLbl(this)" />
+                    <span class="slider-lbl" id="lbl-vol-master"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Música</span>
+                  <span class="cfg-hint">Volume da trilha sonora e música ambiente</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="vol-music" min="0" max="100" step="5"
+                           oninput="Cfg.volLbl(this)" />
+                    <span class="slider-lbl" id="lbl-vol-music"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Efeitos</span>
+                  <span class="cfg-hint">Volume dos efeitos sonoros de batalha e habilidades</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="vol-sfx" min="0" max="100" step="5"
+                           oninput="Cfg.volLbl(this)" />
+                    <span class="slider-lbl" id="lbl-vol-sfx"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Interface</span>
+                  <span class="cfg-hint">Volume dos sons de clique e navegação da interface</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="vol-ui" min="0" max="100" step="5"
+                           oninput="Cfg.volLbl(this)" />
+                    <span class="slider-lbl" id="lbl-vol-ui"></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- INTERFACE -->
+          <section class="cfg-panel" id="panel-interface">
+            <div class="panel-heading"><span>🖥</span> INTERFACE</div>
+            <div class="cfg-rows">
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Tamanho da Interface</span>
+                  <span class="cfg-hint">Escala geral dos elementos de UI</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="ui-scale" min="1" max="3" step="1"
+                           oninput="Cfg.stepLbl(this,['Pequeno','Médio','Grande'])" />
+                    <span class="slider-lbl" id="lbl-ui-scale"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Tamanho dos Textos</span>
+                  <span class="cfg-hint">Tamanho da fonte em toda a interface</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="font-size" min="1" max="3" step="1"
+                           oninput="Cfg.stepLbl(this,['Pequeno','Médio','Grande'])" />
+                    <span class="slider-lbl" id="lbl-font-size"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Animações</span>
+                  <span class="cfg-hint">Ativa ou desativa as animações da interface</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="ui-anims" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Modo de Tela Cheia</span>
+                  <span class="cfg-hint">Expande o jogo para ocupar toda a tela</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="fullscreen" onchange="Cfg.onFullscreen(this)" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ACESSIBILIDADE -->
+          <section class="cfg-panel" id="panel-acessibilidade">
+            <div class="panel-heading"><span>♿</span> ACESSIBILIDADE</div>
+            <div class="cfg-rows">
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Contraste</span>
+                  <span class="cfg-hint">Aumenta o contraste de cores para melhor visibilidade</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="contrast" min="1" max="3" step="1"
+                           oninput="Cfg.stepLbl(this,['Normal','Alto','Máximo'])" />
+                    <span class="slider-lbl" id="lbl-contrast"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Redução de Movimento</span>
+                  <span class="cfg-hint">Minimiza animações para reduzir desconforto visual</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="reduce-motion" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Legendas</span>
+                  <span class="cfg-hint">Exibe legendas em cinemáticas e eventos narrados</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <label class="cos-toggle">
+                    <input type="checkbox" id="subtitles" />
+                    <span class="tog-track"><span class="tog-thumb"></span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Tamanho do Texto</span>
+                  <span class="cfg-hint">Tamanho da fonte nas legendas e textos de lore</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <div class="slider-wrap">
+                    <input class="cos-slider" type="range" id="a11y-font" min="1" max="3" step="1"
+                           oninput="Cfg.stepLbl(this,['Pequeno','Médio','Grande'])" />
+                    <span class="slider-lbl" id="lbl-a11y-font"></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- CONTA -->
+          <section class="cfg-panel" id="panel-conta">
+            <div class="panel-heading"><span>👤</span> CONTA</div>
+            <div class="cfg-rows">
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Nome do Jogador</span>
+                  <span class="cfg-hint">Nome exibido na interface e no perfil</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <input type="text" class="cos-input" id="player-name"
+                         placeholder="Seu nome de aventureiro..." maxlength="24" />
+                </div>
+              </div>
+
+              <div class="cfg-row">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Personagem Ativo</span>
+                  <span class="cfg-hint">Personagem exibido na topbar e usado nas batalhas</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <select class="cos-select" id="active-char">
+                    <option value="kael">Kael — Guerreiro</option>
+                    <option value="lunara">Lunara — Arqueira</option>
+                    <option value="tharok">Tharok — Bárbaro</option>
+                    <option value="sylien">Sylien — Mago</option>
+                    <option value="harley">Harley — Feiticeira</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="cfg-row cfg-row-danger">
+                <div class="cfg-lbl-wrap">
+                  <span class="cfg-lbl">Sair da Conta</span>
+                  <span class="cfg-hint">Encerra a sessão e retorna à tela de login</span>
+                </div>
+                <div class="cfg-ctrl">
+                  <button class="btn-logout" onclick="Cfg.logout()">⏻ SAIR DA CONTA</button>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+        </div><!-- /cfg-panels -->
+      </div><!-- /cfg-body -->
+
+      <!-- SAVE BAR -->
+      <div class="save-bar">
+        <span class="save-bar-msg" id="save-msg"></span>
+        <div class="save-bar-actions">
+          <button class="btn-restore" onclick="Cfg.restore()">↺ RESTAURAR PADRÕES</button>
+          <button class="btn-save"    onclick="Cfg.save()">✦ SALVAR ALTERAÇÕES</button>
+        </div>
+      </div>
+
+    </div><!-- /cfg-area -->
+  </div><!-- /main-wrap -->
+
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/configuracoes.js"></script>
+</body>
+</html>
