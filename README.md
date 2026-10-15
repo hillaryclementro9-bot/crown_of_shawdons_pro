@@ -4,6 +4,7 @@
 A complete medieval fantasy RPG board game built with HTML5, CSS3, and Vanilla JavaScript.
 
 ---
+New
 
 ## How to Open in VS Code
 
